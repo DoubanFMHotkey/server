@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Project requirements
 gem 'rake'
 gem 'thin'
+gem 'faye'
 
 # Component requirements
 gem 'sass'

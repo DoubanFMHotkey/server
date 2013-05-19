@@ -8,6 +8,8 @@ module DoubanFmHotkeyServer
 
     enable :sessions
 
+    use Faye::RackAdapter, :mount => '/faye'
+
     ##
     # Caching support
     #
@@ -39,14 +41,17 @@ module DoubanFmHotkeyServer
     # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     #
 
-    ##
-    # You can configure for a specified environment like:
-    #
-    #   configure :development do
-    #     set :foo, :bar
-    #     disable :asset_stamp # no asset timestamping for dev
-    #   end
-    #
+    configure :development do
+      set :app_url, 'http://0.0.0.0:3000'
+    end
+
+    configure :production do
+      set :app_url, 'http://doubanfm.yesmeck.com'
+    end
+
+    configure do
+      set :faye_url, "#{app_url}/faye"
+    end
 
     ##
     # You can manage errors like:
