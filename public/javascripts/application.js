@@ -2,7 +2,7 @@ $(function() {
 
   var client = new Faye.Client('/faye');
 
-  client.subscribe('/info', function(message) {
+  client.subscribe('/info/' + ACCESS_TOKEN, function(message) {
     console.log(message);
     $pause_button = $('button.pause');
     $love_button = $('button.love');
@@ -22,12 +22,12 @@ $(function() {
     $('#song-name').html('歌名: ' + message.song.songName);
   });
 
-  client.publish('/get_info', { get: 1 });
+  client.publish('/get_info/' + ACCESS_TOKEN, { get: 1 });
 
   $buttons = $('button');
   $buttons.click(function() {
     $this = $(this);
     var cmd = $this.data('cmd')
-    client.publish('/hotkey', { cmd: cmd });
+    client.publish('/hotkey/' + ACCESS_TOKEN, { cmd: cmd });
   });
 });

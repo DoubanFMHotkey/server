@@ -7,12 +7,13 @@ DoubanFmHotkeyServer::App.controllers :douban do
 
   %w{skip pause love ban info}.each do |cmd|
     get cmd.to_sym,  map: "/douban/#{cmd}" do
-      @client = Faye::Client.new(settings.faye_url)
-      @client.publish('/hotkey', {cmd: cmd})
+      broadcast("/hotkey/#{api_key.access_token}", {cmd: cmd})
     end
   end
 
   get :client, map: '/douban/client.js' do
+    @access_token = current_user.api_key.access_token
+    headers "Content-Type" => 'text/javascript'
     render 'douban/client.js'
   end
 

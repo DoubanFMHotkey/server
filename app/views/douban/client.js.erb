@@ -4,7 +4,7 @@
 
   var client = new Faye.Client(appUrl + '/faye');
 
-  client.subscribe('/hotkey', function(msg) {
+  client.subscribe('/hotkey/<%= @access_token %>', function(msg) {
     var songInfo = getSongInfo();
     if (msg.cmd == 'info') {
       sendNotification(songInfo.song.coverUrl, songInfo.song.artistName, songInfo.song.songName);
@@ -25,7 +25,7 @@
     }
   });
 
-  client.subscribe('/get_info', function() {
+  client.subscribe('/get_info/<%= @access_token %>', function() {
     publishSongInfo(getSongInfo());
   });
 
@@ -83,7 +83,7 @@
   };
 
   var publishSongInfo = function(info) {
-    client.publish('/info', info);
+    client.publish('/info/<%= @access_token %>', info);
   };
 
   var getChannelName = function(id) {

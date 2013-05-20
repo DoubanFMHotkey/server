@@ -8,6 +8,7 @@ module DoubanFmHotkeyServer
 
     enable :sessions
 
+    Faye::WebSocket.load_adapter('thin')
     use Faye::RackAdapter, :mount => '/faye'
 
     use OmniAuth::Builder do
@@ -43,7 +44,7 @@ module DoubanFmHotkeyServer
     # disable :sessions             # Disabled sessions by default (enable if needed)
     # disable :flash                # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
     # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
-    #
+    set :protect_from_csrf, false
 
     configure :development do
       set :app_url, 'http://0.0.0.0:3000'
