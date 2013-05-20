@@ -1,0 +1,14 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  douban_key:
+  douban_secret:
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  douban_key:
+  douban_secret:

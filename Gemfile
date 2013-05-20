@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'thin'
 gem 'faye'
+gem 'omniauth-douban-oauth2'
+gem 'settingslogic'
 
 # Component requirements
 gem 'sass'
@@ -20,4 +22,8 @@ gem 'padrino', '0.11.1'
 
 # https://github.com/padrino/padrino-framework/issues/1269
 gem 'tilt', '1.3.7'
+
+group :development do
+  gem 'pry-nav'
+end
 

@@ -10,6 +10,10 @@ module DoubanFmHotkeyServer
 
     use Faye::RackAdapter, :mount => '/faye'
 
+    use OmniAuth::Builder do
+      provider :douban, Settings.douban_key, Settings.douban_secret
+    end
+
     ##
     # Caching support
     #
