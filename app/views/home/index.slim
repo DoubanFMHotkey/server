@@ -1,7 +1,8 @@
-- if logged_in?
-  = current_user.name
--else
-  a href="/auth/douban" Douban
+- if !logged_in?
+  #login-with-douban
+    p
+      a href="/auth/douban" title="用豆瓣帐号登录"
+        img src="/images/login_with_douban_32.png"
 
 #song-info
   #cover

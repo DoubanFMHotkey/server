@@ -1,0 +1,10 @@
+h3 ACCESS_TOKEN
+p= current_user.api_key.access_token
+button#regenerate-access-token.btn type="button" 重新生成
+
+h3 命令
+
+ul
+- %w{skip pause love ban info}.each do |cmd|
+  li= "curl http://#{settings.app_url}/douban/#{cmd}?access_token=#{current_user.api_key.access_token}"
+
