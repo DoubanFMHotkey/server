@@ -21,7 +21,7 @@ ActiveRecord::Base.configurations[:development] = {
 
 ActiveRecord::Base.configurations[:production] = {
   :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'douban_fm_hotkey_server_production.db')
+  :database => Padrino.root('..', 'shared', 'db', 'douban_fm_hotkey_server_production.db')
 
 }
 
