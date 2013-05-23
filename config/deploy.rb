@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-set :rvm_ruby_string, :local
+set :rvm_ruby_string, '2.0.0'
 set :rvm_autolibs_flag, "read-only"
 before 'deploy:setup', 'rvm:install_rvm'
 before 'deploy:setup', 'rvm:install_ruby'
