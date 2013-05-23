@@ -46,18 +46,6 @@ module DoubanFmHotkeyServer
     # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     set :protect_from_csrf, false
 
-    configure :development do
-      set :app_url, 'http://0.0.0.0:3000'
-    end
-
-    configure :production do
-      set :app_url, 'http://doubanfm.yesmeck.com'
-    end
-
-    configure do
-      set :faye_url, "#{app_url}/faye"
-    end
-
     ##
     # You can manage errors like:
     #

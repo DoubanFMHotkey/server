@@ -1,13 +1,10 @@
-doctype
+doctype 5
 html lang="en"
   head
     meta charset="utf-8"
     title Douban FM Hotkey
-    meta content="width=(device-width,)initial-scale=1.0" name="viewport"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
     = stylesheet_link_tag 'bootstrap', 'application', 'bootstrap-responsive'
-    = javascript_include_tag "#{settings.faye_url}.js", 'jquery', 'bootstrap', 'application'
-    /![if lt IE 9]
-      <script src="../assets/js/html5shiv.js"></script>
     javascript:
       var ACCESS_TOKEN = "#{current_user.api_key.access_token if logged_in?}";
   body
@@ -31,3 +28,4 @@ html lang="en"
                = current_user.name
     .container
       = yield
+    = javascript_include_tag "#{Settings.faye_client_url}", 'jquery', 'bootstrap', 'application'

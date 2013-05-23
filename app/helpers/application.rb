@@ -2,7 +2,7 @@ DoubanFmHotkeyServer::App.helpers do
 
 
   def broadcast(channel, message)
-    @client ||= Faye::Client.new(settings.faye_url)
+    @client ||= Faye::Client.new(Settings.faye_url)
     @client.publish(channel, message)
   end
 

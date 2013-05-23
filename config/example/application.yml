@@ -4,6 +4,9 @@ development:
   <<: *defaults
   douban_key:
   douban_secret:
+  app_url:
+  faye_url:
+  faye_client_url:
 
 test:
   <<: *defaults
@@ -12,3 +15,6 @@ production:
   <<: *defaults
   douban_key:
   douban_secret:
+  app_url:
+  faye_url:
+  faye_client_url:

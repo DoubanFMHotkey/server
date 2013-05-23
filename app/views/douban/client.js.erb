@@ -1,10 +1,11 @@
 (function() {
 
-  var appUrl = '<%= settings.app_url %>';
+  var appUrl = '<%= Settings.app_url %>';
+  var accessToken = '<%= current_user.api_key.access_token %>';
 
   var client = new Faye.Client(appUrl + '/faye');
 
-  client.subscribe('/hotkey/<%= @access_token %>', function(msg) {
+  client.subscribe('/hotkey/' + accessToken, function(msg) {
     var songInfo = getSongInfo();
     if (msg.cmd == 'info') {
       sendNotification(songInfo.song.coverUrl, songInfo.song.artistName, songInfo.song.songName);
@@ -25,7 +26,7 @@
     }
   });
 
-  client.subscribe('/get_info/<%= @access_token %>', function() {
+  client.subscribe('/get_info/' + accessToken, function() {
     publishSongInfo(getSongInfo());
   });
 
@@ -57,8 +58,14 @@
   }, 100);
 
   var getSongInfo = function() {
+    var songInfo = window.FM.getCurrentSongInfo();
     return {
-      song: window.FM.getCurrentSongInfo(),
+      song: {
+        artistName: songInfo.artistName,
+        channelName: songInfo.channelName,
+        coverUrl: songInfo.coverUrl,
+        songName: songInfo.songName
+      },
       radio: {
         is_paused: window.DBR.is_paused(),
         selected_like: window.DBR.selected_like()
@@ -83,7 +90,12 @@
   };
 
   var publishSongInfo = function(info) {
-    client.publish('/info/<%= @access_token %>', info);
+    $.ajax({
+      type: 'get',
+      url: appUrl + '/douban/publish_info?access_token=' + accessToken ,
+      data: {info: info},
+      dataType: 'jsonp'
+    });
   };
 
   var getChannelName = function(id) {

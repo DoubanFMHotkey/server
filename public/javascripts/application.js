@@ -6,12 +6,12 @@ $(function() {
     console.log(message);
     $pause_button = $('button.pause');
     $love_button = $('button.love');
-    if (message.radio.is_paused) {
+    if (message.radio.is_paused == 'true') {
       $pause_button.text('播放');
     } else {
       $pause_button.text('暂停');
     }
-    if (message.radio.selected_like) {
+    if (message.radio.selected_like == 'true') {
       $love_button.text('取消喜欢');
     } else {
       $love_button.text('喜欢');
@@ -22,12 +22,15 @@ $(function() {
     $('#song-name').html('歌名: ' + message.song.songName);
   });
 
-  client.publish('/get_info/' + ACCESS_TOKEN, { get: 1 });
-
   $buttons = $('button');
   $buttons.click(function() {
     $this = $(this);
     var cmd = $this.data('cmd')
-    client.publish('/hotkey/' + ACCESS_TOKEN, { cmd: cmd });
+    $.get('/douban/' + cmd + '?access_token=' + ACCESS_TOKEN)
   });
+
+  setTimeout(function() {
+    $.get('/douban/get_info?access_token=' + ACCESS_TOKEN);
+  }, 2000);
+
 });
