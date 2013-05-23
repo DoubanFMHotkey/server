@@ -6,6 +6,7 @@ gem 'thin'
 gem 'faye'
 gem 'omniauth-douban-oauth2'
 gem 'settingslogic'
+gem 'unicorn'
 
 # Component requirements
 gem 'sass'
