@@ -1,6 +1,7 @@
 h3 ACCESS_TOKEN
 p= current_user.api_key.access_token
-button#regenerate-access-token.btn type="button" 重新生成
+form action="/api/regenerate" method="post"
+  input#regenerate-access-token.btn type="submit" value="重新生成"
 
 h3 命令
 
