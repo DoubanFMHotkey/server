@@ -25,5 +25,7 @@ gem 'tilt', '1.3.7'
 
 group :development do
   gem 'pry-nav'
+  gem 'capistrano'
+  gem 'rvm-capistrano'
 end
 
