@@ -8,6 +8,7 @@ DoubanFmHotkeyServer::App.controllers :douban do
   %w{skip pause love ban info}.each do |cmd|
     get cmd.to_sym,  map: "/douban/#{cmd}" do
       broadcast("/hotkey/#{@api_key.access_token}", {cmd: cmd})
+      ''
     end
   end
 
