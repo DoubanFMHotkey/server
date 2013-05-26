@@ -7,6 +7,7 @@ gem 'faye'
 gem 'omniauth-douban-oauth2'
 gem 'settingslogic'
 gem 'unicorn'
+gem 'foreman'
 
 # Component requirements
 gem 'sass'
@@ -28,5 +29,6 @@ group :development do
   gem 'pry-nav'
   gem 'capistrano'
   gem 'rvm-capistrano'
+  gem 'capistrano-foreman'
 end
 

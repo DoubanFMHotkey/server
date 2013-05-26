@@ -8,9 +8,6 @@ module DoubanFmHotkeyServer
 
     enable :sessions
 
-    Faye::WebSocket.load_adapter('thin')
-    use Faye::RackAdapter, :mount => '/faye'
-
     use OmniAuth::Builder do
       provider :douban, Settings.douban_key, Settings.douban_secret
     end

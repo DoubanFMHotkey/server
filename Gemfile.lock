@@ -21,10 +21,12 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    capistrano-foreman (0.0.3)
     coderay (1.0.9)
     cookiejar (0.3.0)
     daemons (1.1.9)
     diff-lcs (1.2.4)
+    dotenv (0.7.0)
     em-http-request (1.0.3)
       addressable (>= 2.2.3)
       cookiejar
@@ -46,6 +48,9 @@ GEM
     faye-websocket (0.6.1)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.2.0)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     hashie (2.0.5)
     highline (1.6.19)
     http_parser.rb (0.5.3)
@@ -176,7 +181,9 @@ PLATFORMS
 DEPENDENCIES
   activerecord (>= 3.1)
   capistrano
+  capistrano-foreman
   faye
+  foreman
   omniauth-douban-oauth2
   padrino (= 0.11.1)
   pry-nav
