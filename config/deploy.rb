@@ -33,6 +33,7 @@ server domain_name, :app, :web, :db, :primary => true
 
 default_run_options[:pty] = true
 
+after "deploy:restart", "foreman:restart"
 after "deploy:restart", "deploy:cleanup"
 
 
