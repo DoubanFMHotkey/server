@@ -18,11 +18,13 @@ DoubanFmHotkeyServer::App.controllers :douban do
 
   get :get_info, map: '/douban/get_info' do
     broadcast("/get_info/#{@api_key.access_token}", {get: true})
+    ''
   end
 
   get :publish_info, map: '/douban/publish_info' do
     headers "Content-Type" => 'text/javascript'
     broadcast("/info/#{@api_key.access_token}", params[:info])
+    ''
   end
 
 end
