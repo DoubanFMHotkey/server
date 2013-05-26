@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/hyperoslo/capistrano-foreman.git
+  revision: 59f6e1529f50303e84144ac553f472088c28f8bc
+  specs:
+    capistrano-foreman (0.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -21,7 +27,6 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capistrano-foreman (0.0.3)
     coderay (1.0.9)
     cookiejar (0.3.0)
     daemons (1.1.9)
@@ -181,7 +186,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (>= 3.1)
   capistrano
-  capistrano-foreman
+  capistrano-foreman!
   faye
   foreman
   omniauth-douban-oauth2

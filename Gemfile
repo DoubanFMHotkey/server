@@ -29,6 +29,6 @@ group :development do
   gem 'pry-nav'
   gem 'capistrano'
   gem 'rvm-capistrano'
-  gem 'capistrano-foreman'
+  gem 'capistrano-foreman', github: 'hyperoslo/capistrano-foreman'
 end
 
