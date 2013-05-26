@@ -1,4 +1,5 @@
 require "#{PADRINO_ROOT}/config/faye_token"
+require 'net/http'
 
 DoubanFmHotkeyServer::App.helpers do
 
