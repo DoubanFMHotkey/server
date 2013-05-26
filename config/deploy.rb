@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
-require 'foreman/capistrano'
+require 'capistrano/foreman'
 
 set :application, 'douban-fm-hotkey-server'
 set :repository,  'git@gitlab.com:yesmeck/douban-fm-hotkey-server.git'
@@ -20,7 +20,7 @@ before 'deploy:setup', 'rvm:install_rvm'
 before 'deploy:setup', 'rvm:install_ruby'
 before 'deploy:setup', 'rvm:create_gemset'
 
-set :foreman_sudo, 'rvmsudo'
+set :foreman_sudo, "rvmsudo -p 'sudo password: '"
 set :foreman_upstart_path, '/etc/init/'
 set :foreman_options, {
   app: application,
