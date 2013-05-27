@@ -1,7 +1,7 @@
 $(function() {
 
   if ($('#song-info')) {
-    var client = new Faye.Client('/faye');
+    var client = new Faye.Client(FAYE_URL);
 
     client.subscribe('/info/' + ACCESS_TOKEN, function(message) {
       console.log(message);

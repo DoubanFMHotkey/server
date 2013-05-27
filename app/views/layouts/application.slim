@@ -7,6 +7,7 @@ html lang="en"
     = stylesheet_link_tag 'bootstrap', 'application', 'bootstrap-responsive'
     javascript:
       var ACCESS_TOKEN = "#{current_user.api_key.access_token if logged_in?}";
+      var FAYE_URL = "#{Settings.faye_url}";
   body
     .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
