@@ -42,6 +42,7 @@ module DoubanFmHotkeyServer
     # disable :flash                # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
     # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     set :protect_from_csrf, false
+    set :sessions, expire_after: 1.year
 
     ##
     # You can manage errors like:
