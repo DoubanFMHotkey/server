@@ -1,1 +1,1 @@
-faye: bundle exec rackup faye.ru -p 9292
+faye: bundle exec rackup faye.ru -s thin -p 9292
