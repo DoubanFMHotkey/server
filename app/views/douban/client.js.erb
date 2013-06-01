@@ -8,6 +8,9 @@
   client.subscribe('/hotkey/' + accessToken, function(msg) {
     var songInfo = getSongInfo();
     if (msg.cmd == 'info') {
+      if (songInfo.radio.selected_like) {
+        songInfo.song.songName += '(喜欢)';
+      }
       sendNotification(songInfo.song.coverUrl, songInfo.song.artistName, songInfo.song.songName);
     } else {
       window.DBR.act(msg.cmd);
@@ -50,6 +53,9 @@
             }
           };
           publishSongInfo(songInfo);
+          if (songInfo.radio.selected_like) {
+            songInfo.song.songName += '(喜欢)';
+          }
           sendNotification(songInfo.song.coverUrl, songInfo.song.artistName, songInfo.song.songName);
         }
         originExtStatusHandler(info);
